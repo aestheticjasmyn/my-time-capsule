@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Dashboard</title>
+    <style>
+        :root {
+            --bg: #fcfaf2;
+            --sand: #e6dfd3;
+            --olive: #707a65;
+            --text: #3a3d35;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+        }
+        /* Global Nav Bar for all pages */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: var(--sand);
+            padding: 1rem;
+            border-bottom: 2px dashed var(--olive);
+            gap: 1.5rem;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        .navbar a:hover, .navbar a.active {
+            background: var(--olive);
+            color: var(--bg);
+        }
+        .welcome-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 2rem;
+        }
+        .trinket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .trinket-card {
+            background: white;
+            border: 1px solid var(--sand);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 5px 5px 0px var(--sand);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .trinket-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px var(--olive);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Security Check: Redirects to lock screen if someone tries to bookmark this page directly -->
+    <script>
+        if(sessionStorage.getItem("vault_accessed") !== "true"){ window.location.href = "index.html"; }
+    </script>
+
+    <div class="navbar">
+        <a href="hub.html" class="active">🏡 Hub</a>
+        <a href="gallery.html">🎞️ Gallery</a>
+        <a href="kitchen.html">🍕 Kitchen</a>
+        <a href="desktop.html">🎮 Arcade</a>
+    </div>
+
+    <div class="welcome-container">
+        <h1>welcome back. ✨</h1>
+        <p>your personal internet scrap space.</p>
+
+        <div class="trinket-grid">
+            <div class="trinket-card" onclick="window.location.href='gallery.html'">
+                <h3>🎞️ Media Lib</h3>
+                <p>film strips & video rows</p>
+            </div>
+            <div class="trinket-card" onclick="window.location.href='kitchen.html'">
+                <h3>🍕 The Pantry</h3>
+                <p>interactive food memory box</p>
+            </div>
+            <div class="trinket-card" onclick="window.location.href='desktop.html'">
+                <h3>🎮 PC Desktop</h3>
+                <p>old emulator & game archives</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+</html>
