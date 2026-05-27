@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎞️ Memory Reel</title>
+    <style>
+        :root { --bg: #fcfaf2; --sand: #e6dfd3; --olive: #707a65; --text: #3a3d35; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        .navbar { display: flex; justify-content: center; background: var(--sand); padding: 1rem; border-bottom: 2px dashed var(--olive); gap: 1.5rem; }
+        .navbar a { text-decoration: none; color: var(--text); font-weight: bold; padding: 0.5rem 1rem; border-radius: 10px; }
+        .navbar a:hover, .navbar a.active { background: var(--olive); color: var(--bg); }
+        
+        .gallery-wrap { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        
+        /* Netflix Style Video Row */
+        .video-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scroll-behavior: smooth;
+        }
+        .video-row::-webkit-scrollbar { height: 8px; }
+        .video-row::-webkit-scrollbar-thumb { background: var(--olive); border-radius: 4px; }
+        .video-card {
+            min-width: 280px;
+            height: 160px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--sand);
+        }
+        .video-card video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Film Strip Photo Layout */
+        .film-strip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #111; /* Dark film container */
+            padding: 2rem 1rem;
+            border-left: 12px dashed #fff;
+            border-right: 12px dashed #fff;
+            max-width: 500px;
+            margin: 3rem auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .film-frame {
+            background: #fff;
+            padding: 15px 15px 40px 15px; /* Extra bottom padding for vintage look */
+            margin-bottom: 2rem;
+            width: 85%;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .film-frame img { width: 100%; height: auto; display: block; filter: contrast(1.05); }
+    </style>
+</head>
+<body>
+    <script>if(sessionStorage.getItem("vault_accessed") !== "true"){ window.location.href = "index.html"; }</script>
+
+    <div class="navbar">
+        <a href="hub.html">🏡 Hub</a>
+        <a href="gallery.html" class="active">🎞️ Gallery</a>
+        <a href="kitchen.html">🍕 Kitchen</a>
+        <a href="desktop.html">🎮 Arcade</a>
+    </div>
+
+    <div class="gallery-wrap">
+        <h2>🎥 Video Reels (Netflix Style)</h2>
+        <div class="video-row">
+            <!-- Put your Google Photos Permanent Video Links inside the src="" -->
+            <div class="video-card">
+                <video src="YOUR_GOOGLE_PASSTHROUGH_VIDEO_URL_HERE" controls muted></video>
+            </div>
+            <div class="video-card">
+                <video src="YOUR_SECOND_VIDEO_URL_HERE" controls muted></video>
+            </div>
+        </div>
+
+        <h2>📸 Photo Strips (Film Frame Style)</h2>
+        <div class="film-strip">
+            <!-- Frame 1 -->
+            <div class="film-frame">
+                <img src="https://lh3.googleusercontent.com/d/YOUR_PERMANENT_GOOGLE_PHOTO_ID" alt="Memory 1">
+            </div>
+            <!-- Frame 2 -->
+            <div class="film-frame">
+                <img src="https://lh3.googleusercontent.com/d/YOUR_PERMANENT_GOOGLE_PHOTO_ID_2" alt="Memory 2">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
