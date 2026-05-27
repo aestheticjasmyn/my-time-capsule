@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 OS Arcade</title>
+    <style>
+        :root { --bg: #fcfaf2; --sand: #e6dfd3; --olive: #707a65; --text: #3a3d35; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        .navbar { display: flex; justify-content: center; background: var(--sand); padding: 1rem; border-bottom: 2px dashed var(--olive); gap: 1.5rem; }
+        .navbar a { text-decoration: none; color: var(--text); font-weight: bold; padding: 0.5rem 1rem; border-radius: 10px; }
+        .navbar a:hover, .navbar a.active { background: var(--olive); color: var(--bg); }
+
+        /* The Virtual Monitor Screen */
+        .monitor {
+            max-width: 800px;
+            height: 480px;
+            background: #2b2d29; /* Dark terminal monitor */
+            margin: 3rem auto;
+            border: 16px solid #4a4e46;
+            border-radius: 8px;
+            position: relative;
+            padding: 1rem;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+        .desktop-icon {
+            width: 70px;
+            text-align: center;
+            color: #fff;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: inline-block;
+            margin: 1rem;
+        }
+        .desktop-icon .icon-img {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+        
+        /* OS System Popups */
+        .popup-window {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 300px;
+            background: var(--bg);
+            border: 2px solid var(--olive);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 100;
+        }
+        .popup-header {
+            background: var(--olive);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-btn { cursor: pointer; font-weight: bold; }
+        .popup-body { padding: 1rem; color: var(--text); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <script>if(sessionStorage.getItem("vault_accessed") !== "true"){ window.location.href = "index.html"; }</script>
+
+    <div class="navbar">
+        <a href="hub.html">🏡 Hub</a>
+        <a href="gallery.html">🎞️ Gallery</a>
+        <a href="kitchen.html">🍕 Kitchen</a>
+        <a href="desktop.html" class="active">🎮 Arcade</a>
+    </div>
+
+    <div class="monitor">
+        <!-- Shortcut Icon 1 -->
+        <div class="desktop-icon" onclick="openProgram('robloxInfo')">
+            <div class="icon-img">🧱</div>
+            <div>Roblox.exe</div>
+        </div>
+
+        <!-- System Windows -->
+        <div class="popup-window" id="robloxInfo">
+            <div class="popup-header">
+                <span>Properties: Roblox</span>
+                <span class="close-btn" onclick="closeProgram('robloxInfo')">❌</span>
+            </div>
+            <div class="popup-body">
+                <p><strong>Username:</strong> aestheticjxsmyn</p>
+                <p>📂 <a href="gallery.html" style="color: var(--olive);">View Tagged Screenshots</a></p>
+                <hr>
+                <p><a href="https://www.roblox.com" target="_blank" style="color: var(--olive);">Launch Web Platform ↗</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProgram(id) { document.getElementById(id).style.display = 'block'; }
+        function closeProgram(id) { document.getElementById(id).style.display = 'none'; }
+    </script>
+</body>
+</html>
